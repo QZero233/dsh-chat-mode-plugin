@@ -1,0 +1,33 @@
+{
+  "name": "dsh-plugin-chat-mode",
+  "version": "0.1.0",
+  "private": true,
+  "description": "聊天模式回复规范：提示词注入 + 回复前结构检查与模型审查 + 逐行分条展示（对齐 WatchLaterServer CompanyReplyGuardHook）",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "patch.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1"
+  },
+  "license": "MIT"
+}

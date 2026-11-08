@@ -1,0 +1,14 @@
+# dsh-plugin-chat-mode bundle patch
+#
+# Inserted into the profile tree after every earlier bundle layer. The row
+# declares both halves: the Host plugin is `lib/index.js`, and because the
+# package also declares `dsh.client`, the modules node half scans it into the
+# browser roster (`window.__DSH_BOOT__`) and serves `lib/client.js`.
+#
+# Toggle with the slash command `/chat on` or `/chat off`; the browser chip in
+# the composer sends exactly that command, so no custom Remote service is
+# needed.
+
+- insert:
+    - id: chat-mode
+      name: 'dsh-plugin-chat-mode'
